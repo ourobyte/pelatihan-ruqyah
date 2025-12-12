@@ -3,383 +3,334 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pelatihan Ruqyah Syar’iyyah Nasional</title>
+    <title>Pelatihan Ruqyah Syar'iyyah Nasional - Kang Risno</title>
+    <meta name="description" content="Ikhtiar Syari Melawan Gangguan Ghaib, Sihir, dan Penyakit Berkepanjangan. Belajar Teknik Ruqyah Mandiri bersama Kang Risno.">
     
-    <!-- Tailwind CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- React & ReactDOM -->
-    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#1E3A8A',   /* Biru Tua - Trust */
+                            gold: '#D97706',   /* Emas - Premium/Accent */
+                            red: '#DC2626',    /* Merah - Urgency */
+                            light: '#F3F4F6'
+                        }
+                    },
+                    fontFamily: {
+                        heading: ['Montserrat', 'sans-serif'],
+                        body: ['Open Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
     
-    <!-- Babel untuk JSX -->
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-    <!-- FontAwesome untuk Icon -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8fafc; /* Slate 50 */
-            color: #1e293b; /* Slate 800 */
-            overflow: hidden; 
-            cursor: none; 
+        body { font-family: 'Open Sans', sans-serif; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; }
+        .hero-bg {
+            background-image: linear-gradient(rgba(30, 58, 138, 0.85), rgba(17, 24, 39, 0.95)), url('https://images.unsplash.com/photo-1519817650390-64a93db51149?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
         }
-
-        /* Font khusus untuk nuansa Islami pada judul */
-        .font-syari {
-            font-family: 'Amiri', serif;
+        .animate-pulse-slow {
+            animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
         }
-
-        /* Utility untuk menyembunyikan scrollbar tapi tetap bisa scroll */
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-
-        /* Animasi Kursor */
-        .custom-cursor {
-            pointer-events: none;
-            z-index: 9999;
-        }
-        
-        /* Pattern Halus Islami (Opsional Background Noise) */
-        .bg-pattern {
-            background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
-            background-size: 24px 24px;
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
-<body>
+<body class="bg-gray-50 text-gray-800 antialiased">
 
-    <div id="root"></div>
+    <section class="hero-bg text-white min-h-screen flex items-center justify-center px-6 py-20 relative">
+        <div class="max-w-4xl mx-auto text-center space-y-6">
+            
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
+                "SETIAP HARI ADA YANG <span class="text-brand-gold">TERIAK</span> DI DALAM DIRI..."
+            </h1>
+            
+            <p class="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto font-light">
+                Tapi tidak semua orang tahu dari mana asalnya. Jangan abaikan susah tidur, cemas tanpa sebab, dan sakit bertahun-tahun. Ini bukan sekadar medis, ini <span class="font-bold text-white">Ikhtiar Syari.</span>
+            </p>
+            
+            <div class="pt-8 flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="#pricing" class="bg-brand-red hover:bg-red-700 text-white text-lg font-bold py-4 px-8 rounded-lg shadow-lg transform transition hover:scale-105 duration-300 w-full sm:w-auto text-center ring-4 ring-red-500/30">
+                    🔥 DAFTAR EARLY BIRD - RP 199.000
+                </a>
+                <p class="text-sm text-gray-300 mt-2 sm:mt-0 font-semibold bg-black/20 px-3 py-1 rounded-full">Khusus 20 Orang Pertama!</p>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 animate-bounce">
+            <i class="fas fa-chevron-down text-2xl text-white opacity-70"></i>
+        </div>
+    </section>
 
-    <script type="text/babel">
-        const { useState, useEffect, useRef } = React;
-
-        const materiDasar = [
-            "Mengenal Seluk Beluk Jin Syaitan PIS",
-            "Sihir dan Guna-guna Serta Tata Cara Mengobati PIS",
-            "Pentingnya Memahami Ruqyah Yang Benar Dan Salah",
-            "Jin / Syaitan Merusak System",
-            "Mengenal Gejala Gangguan Jin",
-            "Penyebab Dan Proses Kesurupan",
-            "Delapan Jenis Sihir Dan Terapinya",
-            "Terapi Ruqyah Untuk Gangguan Rumah, Kantor dll"
-        ];
-
-        const materiPendalaman = [
-            "Pemetaan Jin Dalam Tubuh",
-            "Proses Kerja Jin Dalam Tubuh",
-            "Tehnik Ruqyah Untuk Gangguan Jiwa",
-            "Tehnik Ruqyah Untuk Indigo",
-            "Tehnik Tashkhisy / Diagnosa Gangguan Jin",
-            "Tehnik Ruqyah Cepat",
-            "Tehnik Ruqyah Tanpa Kesurupan",
-            "Tehnik Pengeluaran Jin Tanpa Kesurupan",
-            "Tehnik Pengeluaran Jin Dengan Tausiyah",
-            "Tehnik Membongkar Dan Memutuskan Buhul",
-            "Tehnik Ruqyah Mandiri",
-            "Bekam Untuk Pengeluaran Jin"
-        ];
-
-        const materiSpesial = [
-            "Hukum Meminta Ruqyah",
-            "Fatwa-fatwa Tentang Ruqyah",
-            "Pentingnya Klinik Ruqyah",
-            "Sejarah Ruqyah Syar'iyyah",
-            "Ruqyah Dan Dakwah Tauhid"
-        ];
-
-        const App = () => {
-            const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-            const containerRef = useRef(null);
-
-            useEffect(() => {
-                const handleMouseMove = (e) => {
-                    setMousePos({ x: e.clientX, y: e.clientY });
-                };
-                window.addEventListener('mousemove', handleMouseMove);
-                return () => window.removeEventListener('mousemove', handleMouseMove);
-            }, []);
-
-            const moveX = (mousePos.x / window.innerWidth) * 20; 
-            const moveY = (mousePos.y / window.innerHeight) * 20;
-
-            return (
-                <div className="relative w-full h-screen overflow-hidden bg-slate-50 text-slate-800 selection:bg-emerald-200 selection:text-emerald-900 font-sans">
-                    
-                    {/* --- BACKGROUND DINAMIS (Versi Light/Clean) --- */}
-                    <div className="absolute inset-0 bg-pattern opacity-30 pointer-events-none"></div>
-
-                    {/* Gradient Blob 1 (Hijau Lembut) */}
-                    <div 
-                        className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-emerald-200 rounded-full mix-blend-multiply filter blur-[80px] opacity-60 transition-transform duration-100 ease-out"
-                        style={{ transform: `translate(${moveX * -2}px, ${moveY * -2}px)` }}
-                    ></div>
-                    
-                    {/* Gradient Blob 2 (Emas Lembut) */}
-                    <div 
-                        className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-amber-100 rounded-full mix-blend-multiply filter blur-[100px] opacity-70 transition-transform duration-100 ease-out"
-                        style={{ transform: `translate(${moveX * 2}px, ${moveY * 2}px)` }}
-                    ></div>
-
-                    {/* --- CUSTOM CURSOR (Updated visibility for white bg) --- */}
-                    <div 
-                        className="custom-cursor fixed top-0 left-0 w-8 h-8 border border-emerald-500 rounded-full transition-transform duration-100 ease-out transform -translate-x-1/2 -translate-y-1/2 hidden md:block"
-                        style={{ left: mousePos.x, top: mousePos.y }}
-                    ></div>
-                    <div 
-                        className="custom-cursor fixed top-0 left-0 w-2 h-2 bg-emerald-600 rounded-full transition-transform duration-0 ease-out transform -translate-x-1/2 -translate-y-1/2 hidden md:block"
-                        style={{ left: mousePos.x, top: mousePos.y }}
-                    ></div>
-
-
-                    {/* --- KONTEN UTAMA --- */}
-                    <div 
-                        ref={containerRef}
-                        className="relative z-10 w-full h-full overflow-y-scroll no-scrollbar scroll-smooth"
-                    >
-                        <div className="max-w-4xl mx-auto px-6 py-12 md:py-20 flex flex-col gap-12">
-                            
-                            {/* Header Section */}
-                            <div className="text-center space-y-4 animate-fade-in-down pt-8">
-                                <div className="inline-flex items-center gap-2 py-1 px-4 rounded-full bg-white text-emerald-600 text-sm font-semibold mb-2 shadow-sm border border-emerald-100">
-                                    <i className="fa-solid fa-leaf"></i>
-                                    <span>Cepat – Alami – Ilmiah</span>
-                                </div>
-                                
-                                {/* Bismillah Decoration */}
-                                <div className="text-emerald-800/60 font-syari text-2xl mb-2">
-                                    بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم
-                                </div>
-
-                                <h1 className="text-4xl md:text-6xl font-bold font-syari text-slate-800 leading-tight">
-                                    Pelatihan <span className="text-emerald-600">Ruqyah Syar’iyyah</span> Nasional
-                                </h1>
-                                <p className="text-lg md:text-xl text-slate-500 font-light italic max-w-2xl mx-auto">
-                                    “Ikhtiar Syari Melawan Sihir, Gangguan Jin, Guna-guna, & Penyakit Fisik Berkepanjangan"
-                                </p>
-                            </div>
-
-                            {/* Speaker Section */}
-                            <div className="bg-white rounded-2xl p-8 border border-slate-100 shadow-lg hover:shadow-emerald-100/50 transition-all duration-300">
-                                <div className="flex flex-col md:flex-row items-center gap-8">
-                                    <div className="relative">
-                                        <div className="absolute inset-0 bg-emerald-200 rounded-full blur-lg opacity-50"></div>
-                                        <div className="relative w-28 h-28 bg-slate-100 rounded-full flex items-center justify-center text-5xl shadow-md border-4 border-white text-emerald-700">
-                                            <i className="fa-solid fa-user-shield"></i>
-                                        </div>
-                                    </div>
-                                    <div className="text-center md:text-left flex-1">
-                                        <h2 className="text-2xl font-bold text-slate-800 mb-1">Kang Risno, C.EQP, C.AMB</h2>
-                                        <p className="text-emerald-600 font-medium mb-4 flex items-center justify-center md:justify-start gap-2">
-                                            <i className="fa-solid fa-medal"></i> Army Terapist
-                                        </p>
-                                        <div className="grid md:grid-cols-2 gap-2 text-sm text-slate-600">
-                                            <div className="flex items-start gap-2">
-                                                <i className="fa-solid fa-check-circle text-emerald-400 mt-1"></i>
-                                                <span>Alumni Daurah Ruqyah Nasional Al Umm Malang</span>
-                                            </div>
-                                            <div className="flex items-start gap-2">
-                                                <i className="fa-solid fa-check-circle text-emerald-400 mt-1"></i>
-                                                <span>Alumni Daurah Ruqyah STIKES Banyuwangi</span>
-                                            </div>
-                                            <div className="flex items-start gap-2">
-                                                <i className="fa-solid fa-check-circle text-emerald-400 mt-1"></i>
-                                                <span>Alumni Daurah Ruqyah UNDIP Semarang</span>
-                                            </div>
-                                            <div className="flex items-start gap-2">
-                                                <i className="fa-solid fa-check-circle text-emerald-400 mt-1"></i>
-                                                <span>Alumni Daurah Ruqyah Syaikh Abu Al-Barra</span>
-                                            </div>
-                                            <div className="flex items-start gap-2 md:col-span-2">
-                                                <i className="fa-solid fa-check-circle text-emerald-400 mt-1"></i>
-                                                <span>Trainer & Asesor Praktisi Thibbun Nabawi Indonesia (PTNI)</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Info Waktu */}
-                            <div className="flex flex-col md:flex-row justify-center gap-4 text-center">
-                                <div className="bg-white p-6 rounded-xl border border-slate-100 shadow-sm flex-1 hover:border-emerald-200 transition">
-                                    <div className="w-12 h-12 bg-emerald-50 rounded-full flex items-center justify-center mx-auto mb-3 text-emerald-600">
-                                        <i className="fa-regular fa-calendar-days text-xl"></i>
-                                    </div>
-                                    <h3 className="text-lg font-bold text-slate-700">Minggu, 25 Januari 2026</h3>
-                                </div>
-                                <div className="bg-white p-6 rounded-xl border border-slate-100 shadow-sm flex-1 hover:border-emerald-200 transition">
-                                    <div className="w-12 h-12 bg-emerald-50 rounded-full flex items-center justify-center mx-auto mb-3 text-emerald-600">
-                                        <i className="fa-regular fa-clock text-xl"></i>
-                                    </div>
-                                    <h3 className="text-lg font-bold text-slate-700">09.00 - 13.00 WIB</h3>
-                                </div>
-                            </div>
-
-                            {/* Materi Section (Grid) */}
-                            <div className="space-y-8">
-                                <div className="text-center">
-                                    <h2 className="text-3xl font-bold font-syari text-slate-800">
-                                        Kurikulum Pelatihan
-                                    </h2>
-                                    <div className="w-24 h-1 bg-emerald-500 mx-auto mt-2 rounded-full"></div>
-                                </div>
-                                
-                                <div className="grid md:grid-cols-2 gap-6">
-                                    {/* Materi Dasar */}
-                                    <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition">
-                                        <h3 className="text-xl font-bold text-emerald-700 mb-4 flex items-center gap-2 border-b border-slate-100 pb-2">
-                                            <i className="fa-solid fa-book-quran"></i> Materi Dasar
-                                        </h3>
-                                        <ul className="space-y-3">
-                                            {materiDasar.map((item, idx) => (
-                                                <li key={idx} className="flex items-start gap-3 text-sm text-slate-600">
-                                                    <span className="w-5 h-5 flex items-center justify-center bg-emerald-100 text-emerald-600 rounded-full text-xs mt-0.5 shrink-0">
-                                                        {idx + 1}
-                                                    </span>
-                                                    <span>{item}</span>
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </div>
-
-                                    <div className="space-y-6">
-                                        {/* Materi Pendalaman */}
-                                        <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition">
-                                            <h3 className="text-xl font-bold text-blue-700 mb-4 flex items-center gap-2 border-b border-slate-100 pb-2">
-                                                <i className="fa-solid fa-layer-group"></i> Materi Pendalaman
-                                            </h3>
-                                            <ul className="space-y-3">
-                                                {materiPendalaman.slice(0, 6).map((item, idx) => (
-                                                    <li key={idx} className="flex items-start gap-3 text-sm text-slate-600">
-                                                        <i className="fa-solid fa-angle-right text-blue-400 mt-1"></i>
-                                                        <span>{item}</span>
-                                                    </li>
-                                                ))}
-                                                 <li className="text-xs text-blue-500 italic ml-6 font-medium bg-blue-50 px-2 py-1 rounded inline-block">...dan 6 materi lanjutan lainnya</li>
-                                            </ul>
-                                        </div>
-
-                                        {/* Materi Spesial */}
-                                        <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition bg-gradient-to-br from-white to-amber-50/50">
-                                            <h3 className="text-xl font-bold text-amber-600 mb-4 flex items-center gap-2 border-b border-slate-100 pb-2">
-                                                <i className="fa-solid fa-star"></i> Materi Spesial
-                                            </h3>
-                                            <ul className="space-y-3">
-                                                {materiSpesial.map((item, idx) => (
-                                                    <li key={idx} className="flex items-start gap-3 text-sm text-slate-600">
-                                                        <i className="fa-solid fa-star text-amber-400 mt-1 text-xs"></i>
-                                                        <span>{item}</span>
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Fasilitas */}
-                            <div className="bg-emerald-50/50 p-8 rounded-2xl border border-emerald-100 text-center relative overflow-hidden">
-                                <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-100 rounded-full blur-3xl opacity-50 -mr-10 -mt-10"></div>
-                                <h3 className="text-2xl font-bold mb-8 text-emerald-800 font-syari relative z-10">Fasilitas Peserta</h3>
-                                <div className="grid grid-cols-2 md:grid-cols-3 gap-4 relative z-10">
-                                    {[
-                                        {icon: "fa-brain", text: "Ilmu Bermanfaat"},
-                                        {icon: "fa-file-pdf", text: "Modul Lengkap"},
-                                        {icon: "fa-certificate", text: "E-Sertifikat"},
-                                        {icon: "fa-snowflake", text: "Ruangan AC"},
-                                        {icon: "fa-utensils", text: "Makan Siang"},
-                                        {icon: "fa-users", text: "Grup Alumni"},
-                                    ].map((f, i) => (
-                                        <div key={i} className="flex flex-col items-center gap-3 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition border border-emerald-50/50">
-                                            <div className="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600">
-                                                <i className={`fa-solid ${f.icon}`}></i>
-                                            </div>
-                                            <span className="text-sm font-medium text-slate-700">{f.text}</span>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-
-                            {/* Pricing Section */}
-                            <div className="grid md:grid-cols-2 gap-6 items-end">
-                                {/* Regular Price */}
-                                <div className="order-2 md:order-1 bg-white p-6 rounded-2xl border border-slate-200 text-center shadow-sm">
-                                    <h4 className="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-2">Harga Normal</h4>
-                                    <p className="text-2xl font-bold line-through text-slate-300 decoration-red-400 decoration-2">Rp 2.500.000</p>
-                                    <div className="my-4 border-t border-slate-100"></div>
-                                    <h4 className="text-md text-slate-500 mb-1">Spesial Akhir Tahun</h4>
-                                    <p className="text-3xl font-bold text-slate-700">Rp 250.000</p>
-                                </div>
-
-                                {/* Early Bird */}
-                                <div className="order-1 md:order-2 relative bg-white p-8 rounded-2xl border-2 border-emerald-500 shadow-xl shadow-emerald-100 transform md:-translate-y-4">
-                                    <div className="absolute top-0 right-0 bg-red-500 text-white text-xs font-bold px-4 py-1.5 rounded-bl-xl rounded-tr-lg shadow-sm">
-                                        TERBATAS!
-                                    </div>
-                                    <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-emerald-600 text-white px-4 py-1 rounded-full text-sm font-bold shadow-md">
-                                        BEST DEAL
-                                    </div>
-                                    
-                                    <h3 className="text-2xl font-bold text-emerald-600 mb-1 mt-2 text-center">EARLY BIRD</h3>
-                                    <p className="text-slate-400 text-sm mb-6 text-center">Khusus 20 Orang Pertama</p>
-                                    
-                                    <div className="text-center mb-6">
-                                        <div className="text-5xl font-extrabold text-slate-800">
-                                            199K
-                                        </div>
-                                        <p className="text-emerald-600 text-xs font-medium mt-2 bg-emerald-50 py-1 px-3 rounded-full inline-block border border-emerald-100">
-                                            Syarat: Daftar & Lunas Langsung
-                                        </p>
-                                    </div>
-
-                                    <div className="space-y-3 text-sm text-slate-600 mb-8 bg-slate-50 p-4 rounded-lg">
-                                        <p className="flex items-center gap-2"><i className="fa-solid fa-circle-exclamation text-amber-500"></i> Pendaftaran ditutup saat kuota penuh</p>
-                                        <p className="flex items-center gap-2"><i className="fa-solid fa-chair text-amber-500"></i> Tempat terbatas demi kenyamanan</p>
-                                    </div>
-                                    
-                                    <a 
-                                        href="https://wa.me/6281281100065"
-                                        target="_blank"
-                                        className="group flex items-center justify-center gap-2 w-full py-4 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-lg rounded-xl shadow-lg shadow-emerald-200 transition-all transform active:scale-95"
-                                    >
-                                        <span>Daftar Sekarang</span>
-                                        <i className="fa-brands fa-whatsapp text-xl group-hover:rotate-12 transition-transform"></i>
-                                    </a>
-                                </div>
-                            </div>
-
-                            {/* Footer / Contact */}
-                            <div className="text-center pt-8 pb-20 md:pb-8 text-slate-400 text-sm">
-                                <div className="flex justify-center gap-4 mb-4">
-                                    <a href="#" className="w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center text-slate-400 hover:text-emerald-600 hover:shadow-md transition">
-                                        <i className="fa-brands fa-instagram"></i>
-                                    </a>
-                                    <a href="#" className="w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center text-slate-400 hover:text-blue-600 hover:shadow-md transition">
-                                        <i className="fa-brands fa-facebook-f"></i>
-                                    </a>
-                                </div>
-                                <p>Info WA: 0812-8110-0065</p>
-                                <p className="mt-2">© 2026 Pelatihan Ruqyah Syar’iyyah Nasional</p>
-                            </div>
-
+    <section class="py-16 md:py-24 bg-white px-6">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-brand-blue text-center mb-12">
+                Apakah Salah Satunya Adalah Anda?
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="space-y-6">
+                    <div class="flex items-start gap-4 p-4 hover:bg-red-50 rounded-lg transition-colors duration-300">
+                        <i class="fas fa-times-circle text-brand-red text-2xl mt-1"></i>
+                        <div>
+                            <h3 class="font-bold text-lg">Tidak Bisa Tidur (Insomnia)</h3>
+                            <p class="text-gray-600">Mata terpejam, tapi pikiran gelisah sepanjang malam.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 p-4 hover:bg-red-50 rounded-lg transition-colors duration-300">
+                        <i class="fas fa-times-circle text-brand-red text-2xl mt-1"></i>
+                        <div>
+                            <h3 class="font-bold text-lg">Takut Tanpa Sebab</h3>
+                            <p class="text-gray-600">Jantung berdebar, merasa diawasi, atau dikejar bayangan.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 p-4 hover:bg-red-50 rounded-lg transition-colors duration-300">
+                        <i class="fas fa-times-circle text-brand-red text-2xl mt-1"></i>
+                        <div>
+                            <h3 class="font-bold text-lg">Emosi Tidak Stabil</h3>
+                            <p class="text-gray-600">Tiba-tiba marah besar, depresi berat, atau gelisah mendadak.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 p-4 hover:bg-red-50 rounded-lg transition-colors duration-300">
+                        <i class="fas fa-times-circle text-brand-red text-2xl mt-1"></i>
+                        <div>
+                            <h3 class="font-bold text-lg">Sakit Fisik Menahun</h3>
+                            <p class="text-gray-600">Sudah ke dokter spesialis, hasil lab normal, tapi sakit tidak hilang.</p>
                         </div>
                     </div>
                 </div>
-            );
-        };
+                
+                <div class="bg-gray-100 p-8 rounded-xl border-l-4 border-brand-blue shadow-inner">
+                    <p class="text-xl font-heading italic text-gray-700 leading-relaxed">
+                        Saat berbaring di ranjang... hati berbisik: <br>
+                        <span class="font-bold text-brand-blue block mt-2 text-2xl">"Ini bukan sakit biasa... Aku butuh pertolongan."</span>
+                    </p>
+                    <hr class="border-gray-300 my-4">
+                    <p class="text-sm text-gray-600">
+                        <i class="fas fa-exclamation-triangle text-yellow-500 mr-1"></i> Gangguan jin, sihir, dan 'ain itu nyata. Jika didiamkan, ia tidak hilang sendiri. Ia tumbuh dan merusak perlahan.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
-    </script>
+    <section class="py-16 bg-brand-blue text-white px-6 relative overflow-hidden">
+        <!-- Decoration BG -->
+        <div class="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full -mr-32 -mt-32"></div>
+        <div class="absolute bottom-0 left-0 w-40 h-40 bg-brand-gold opacity-10 rounded-full -ml-20 -mb-20"></div>
+
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-12 items-center relative z-10">
+            <div class="md:w-1/2">
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-brand-gold to-brand-red rounded-lg blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
+                    <img src="https://i.ibb.co.com/rK4jkMR6/Whats-App-Image-2025-12-12-at-13-30-07.jpg" alt="Kang Risno" class="relative rounded-lg shadow-2xl border-2 border-brand-gold w-full object-cover h-96 md:h-auto transform transition group-hover:scale-[1.01]">
+                    <div class="absolute -bottom-6 -right-6 bg-white text-brand-blue p-4 rounded-lg shadow-lg hidden md:block border border-gray-200">
+                        <p class="font-bold text-2xl text-center">Kang Risno</p>
+                        <p class="text-sm uppercase tracking-wide font-semibold text-center">Terapis Ruqyah</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="md:w-1/2 space-y-6">
+                <div class="inline-block bg-brand-gold/20 px-3 py-1 rounded-lg border border-brand-gold/30">
+                    <h4 class="text-brand-gold font-bold tracking-wider uppercase text-sm">Solusi Ilmiah & Syari</h4>
+                </div>
+                <h2 class="text-3xl md:text-5xl font-bold leading-tight">Best Practice, Bukan Sekadar Teori.</h2>
+                <p class="text-gray-300 text-lg leading-relaxed">
+                    Bersama <strong>Kang Risno, C.EQP, C.AMB (Army Therapist)</strong>. Belajar cara menolong diri sendiri, keluarga, dan orang lain dengan metode yang teruji.
+                </p>
+                
+                <ul class="space-y-4 mt-4">
+                    <li class="flex items-center gap-3">
+                        <span class="bg-brand-gold/20 p-1 rounded text-brand-gold"><i class="fas fa-check"></i></span>
+                        Alumni Daurah Ruqyah Nasional Al Umm Malang
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="bg-brand-gold/20 p-1 rounded text-brand-gold"><i class="fas fa-check"></i></span>
+                        Alumni Daurah Ruqyah UNDIP & STIKES Banyuwangi
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="bg-brand-gold/20 p-1 rounded text-brand-gold"><i class="fas fa-check"></i></span>
+                        Trainer & Asesor Praktisi Thibbun Nabawi Indonesia
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="bg-brand-gold/20 p-1 rounded text-brand-gold"><i class="fas fa-check"></i></span>
+                        Menangani Kesurupan, Sihir, & Penyakit Fisik
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 md:py-24 bg-gray-50 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Materi Pelatihan Lengkap</h2>
+                <p class="text-gray-600 mt-4 text-lg">Kupas tuntas dari diagnosa hingga teknik penyembuhan.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition duration-300 border-t-4 border-gray-400 group">
+                    <div class="h-14 w-14 bg-gray-100 rounded-full flex items-center justify-center mb-6 text-gray-600 group-hover:bg-gray-200 transition">
+                        <i class="fas fa-book text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-800">Materi Dasar</h3>
+                    <ul class="space-y-3 text-sm text-gray-600">
+                        <li class="flex items-start gap-2"><span class="text-brand-blue">•</span> Mengenal Seluk Beluk Jin & Syaitan</li>
+                        <li class="flex items-start gap-2"><span class="text-brand-blue">•</span> 8 Jenis Sihir & Terapinya</li>
+                        <li class="flex items-start gap-2"><span class="text-brand-blue">•</span> Gejala Gangguan Jin (PIS)</li>
+                        <li class="flex items-start gap-2"><span class="text-brand-blue">•</span> Ruqyah untuk Rumah & Kantor</li>
+                        <li class="flex items-start gap-2"><span class="text-brand-blue">•</span> Dan lain-lain</li>
+                    </ul>
+                </div>
+                
+                <!-- Card 2 (Featured) -->
+                <div class="bg-white p-8 rounded-xl shadow-2xl transform md:-translate-y-4 border-t-4 border-brand-gold relative ring-1 ring-gray-100 z-10">
+                    <div class="absolute top-0 right-0">
+                         <div class="bg-brand-gold text-white text-xs px-3 py-1 rounded-bl-lg font-bold shadow-sm">
+                            <i class="fas fa-star mr-1"></i> FAVORIT
+                         </div>
+                    </div>
+                    <div class="h-14 w-14 bg-orange-100 rounded-full flex items-center justify-center mb-6 text-brand-gold animate-pulse-slow">
+                        <i class="fas fa-hand-holding-medical text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-900">Materi Pendalaman</h3>
+                    <ul class="space-y-3 text-sm text-gray-700 font-medium">
+                        <li class="flex items-start gap-2"><span class="text-brand-gold">✓</span> Pemetaan Jin dalam Tubuh</li>
+                        <li class="flex items-start gap-2"><span class="text-brand-gold">✓</span> <strong>Teknik Diagnosa (Tashkhisy)</strong></li>
+                        <li class="flex items-start gap-2"><span class="text-brand-gold">✓</span> Membongkar & Memutus Buhul</li>
+                        <li class="flex items-start gap-2"><span class="text-brand-gold">✓</span> Ruqyah Tanpa Kesurupan</li>
+                        <li class="flex items-start gap-2"><span class="text-brand-gold">✓</span> <strong>Teknik Ruqyah Mandiri</strong></li>
+                        <li class="flex items-start gap-2"><span class="text-brand-gold">✓</span> <strong>Dan Lain-lain</strong></li>
+                    </ul>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition duration-300 border-t-4 border-brand-blue group">
+                    <div class="h-14 w-14 bg-blue-50 rounded-full flex items-center justify-center mb-6 text-brand-blue group-hover:bg-blue-100 transition">
+                        <i class="fas fa-shield-alt text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-800">Materi Spesial</h3>
+                    <ul class="space-y-3 text-sm text-gray-600">
+                        <li class="flex items-start gap-2"><span class="text-brand-blue">•</span> Hukum & Fatwa Ruqyah</li>
+                        <li class="flex items-start gap-2"><span class="text-brand-blue">•</span> Bekam untuk Pengeluaran Jin</li>
+                        <li class="flex items-start gap-2"><span class="text-brand-blue">•</span> Ruqyah & Dakwah Tauhid</li>
+                        <li class="flex items-start gap-2"><span class="text-brand-blue">•</span> Sesi Praktik Langsung</li>
+                        <li class="flex items-start gap-2"><span class="text-brand-blue">•</span> Dan Lain-lain</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="py-16 bg-white px-6">
+        <div class="max-w-4xl mx-auto bg-brand-blue rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row transform transition hover:scale-[1.01] duration-500">
+            <div class="p-10 md:w-3/5 text-white flex flex-col justify-center relative">
+                <!-- Watermark Icon -->
+                <i class="fas fa-mosque absolute bottom-4 left-4 text-9xl opacity-5"></i>
+                
+                <h3 class="text-3xl font-bold mb-4 relative z-10">Investasi Ilmu Seumur Hidup</h3>
+                <p class="mb-6 opacity-90 relative z-10 text-blue-100">Bayangkan biaya terapi profesional 4x pertemuan = <strong>Rp 2.000.000+</strong>. Di sini Anda belajar ilmunya sekali, bisa dipakai selamanya untuk keluarga.</p>
+                
+                <h4 class="font-bold text-brand-gold mb-4 uppercase tracking-wide text-sm relative z-10 border-b border-brand-gold/30 pb-2 inline-block">Fasilitas Peserta:</h4>
+                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm relative z-10">
+                    <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-gold"></i> Modul PDF & Audio/Video</li>
+                    <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-gold"></i> Sertifikat Resmi</li>
+                    <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-gold"></i> Ruang Full AC</li>
+                    <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-gold"></i> Makan Siang</li>
+                    <li class="flex items-center gap-2"><i class="fas fa-check-circle text-brand-gold"></i> Grup Alumni & Bimbingan</li>
+                </ul>
+            </div>
+            
+            <div class="bg-brand-light p-10 md:w-2/5 flex flex-col justify-center items-center text-center border-t md:border-t-0 md:border-l border-gray-200 relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-red-500 via-brand-gold to-red-500"></div>
+                
+                <p class="text-gray-500 line-through text-lg">Rp 2.500.000</p>
+                <p class="text-brand-blue font-bold text-xl mb-4">Harga Normal <span class="line-through decoration-red-500 decoration-2">Rp 250.000</span></p>
+                
+                <div class="bg-brand-red text-white px-4 py-1 rounded-full text-xs font-bold mb-2 animate-pulse shadow-lg transform -rotate-2">SLOT TERBATAS!</div>
+                <h3 class="text-5xl font-extrabold text-gray-900 mb-1 tracking-tight">199<span class="text-2xl text-gray-600">rb</span></h3>
+                <p class="text-xs text-gray-500 mb-8 font-medium uppercase tracking-wide">Khusus 20 Pendaftar Pertama</p>
+                
+                <a href="https://wa.me/6281281100065?text=Assalamualaikum,%20saya%20tertarik%20daftar%20Pelatihan%20Ruqyah%20Early%20Bird." class="bg-green-600 hover:bg-green-700 text-white font-bold py-3.5 px-6 rounded-lg w-full shadow-lg transition duration-300 flex items-center justify-center gap-2 group hover:ring-2 hover:ring-green-400 hover:ring-offset-2">
+                    <i class="fab fa-whatsapp text-2xl group-hover:animate-bounce"></i> DAFTAR SEKARANG
+                </a>
+                <p class="text-[10px] text-gray-400 mt-3">*Klik tombol di atas untuk terhubung ke WhatsApp Admin</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 bg-gray-50 px-6 border-b border-gray-200">
+        <div class="max-w-4xl mx-auto text-center space-y-8">
+            <h2 class="text-2xl font-bold text-gray-800 flex items-center justify-center gap-2">
+                <span class="w-8 h-1 bg-brand-gold rounded-full"></span>
+                Jadwal Pelaksanaan
+                <span class="w-8 h-1 bg-brand-gold rounded-full"></span>
+            </h2>
+            
+            <div class="flex flex-col md:flex-row justify-center gap-6 md:gap-12">
+                <div class="flex flex-col items-center p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition w-full md:w-auto">
+                    <div class="w-16 h-16 bg-brand-blue text-white rounded-full flex items-center justify-center text-2xl mb-3 shadow-lg">
+                        <i class="far fa-calendar-alt"></i>
+                    </div>
+                    <h4 class="font-bold text-gray-800">Minggu</h4>
+                    <p class="text-brand-blue font-semibold">25 Januari 2026</p>
+                </div>
+                
+                <div class="flex flex-col items-center p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition w-full md:w-auto">
+                    <div class="w-16 h-16 bg-brand-blue text-white rounded-full flex items-center justify-center text-2xl mb-3 shadow-lg">
+                        <i class="far fa-clock"></i>
+                    </div>
+                    <h4 class="font-bold text-gray-800">Waktu</h4>
+                    <p class="text-brand-blue font-semibold">09.00 – 13.00 WIB</p>
+                </div>
+                
+                <div class="flex flex-col items-center p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition w-full md:w-auto">
+                    <div class="w-16 h-16 bg-brand-blue text-white rounded-full flex items-center justify-center text-2xl mb-3 shadow-lg">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h4 class="font-bold text-gray-800">Lokasi</h4>
+                    <p class="text-gray-600 text-sm max-w-xs text-center">Gedung GMI, Jl. Lembah hijau No. 34 Mekarsari, Cimanggis Depok</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-gray-400 py-12 px-6 pb-24 md:pb-12 border-t-4 border-brand-gold">
+        <div class="max-w-4xl mx-auto text-center space-y-6">
+            <h3 class="text-white text-xl font-bold font-heading">Jangan Tunda Kesembuhan</h3>
+            <p class="max-w-xl mx-auto italic text-gray-500">"Siapa menunda, akan tertinggal. Penyakit tidak menunggu kita siap. Amankan kuota Anda sekarang untuk keluarga tercinta."</p>
+            <div class="flex justify-center gap-4 mt-4">
+                 <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-blue hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+                 <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-pink-600 hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                 <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-red-600 hover:text-white transition"><i class="fab fa-youtube"></i></a>
+            </div>
+            <div class="text-sm border-t border-gray-800 pt-8">
+                &copy; 2026 Pelatihan Ruqyah Syar'iyyah Nasional. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Sticky CTA -->
+    <div class="fixed bottom-0 left-0 w-full bg-white/95 backdrop-blur-md border-t border-gray-200 p-4 md:hidden z-50 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
+        <a href="https://wa.me/6281281100065?text=Assalamualaikum,%20saya%20tertarik%20daftar%20Pelatihan%20Ruqyah." class="block w-full bg-green-600 active:bg-green-800 text-white text-center font-bold py-3 rounded-lg shadow-lg flex items-center justify-center gap-2 animate-pulse-slow">
+            <i class="fab fa-whatsapp text-2xl"></i> DAFTAR SEKARANG
+        </a>
+    </div>
+
 </body>
 </html>
